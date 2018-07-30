@@ -1,0 +1,13 @@
+class LinkListNode {
+  constructor(data, next = null) {
+    this.value = data;
+    this.next = next;
+  }
+
+  //toString method on node value
+  toString(callback) {
+    return callback ? callback(this.value) : `${this.value}`
+  }
+};
+
+export default LinkListNode;
