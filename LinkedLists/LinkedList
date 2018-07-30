@@ -1,10 +1,20 @@
-class LinkListNode {
-  constructor(data, next = null) {
-    this.value = data;
-    this.next = next;
-  }
+import LinkedListNode from './Node'
 
-  toString(callback) {
-    return callback ? callback(this.value) : `${this.value}`
+class LinkedList {
+  constructor() {
   }
 };
+
+
+/* 
+TODO: 
+  Node class with data and next 
+  LinkedList class with head and tail
+    with methods: 
+      prepend(nodeToHead)
+      append(nodeToTail)
+      delete(node)
+      find(node)
+      deleteTail()
+      deletHead()
+*/
