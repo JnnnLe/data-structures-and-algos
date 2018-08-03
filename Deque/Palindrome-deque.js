@@ -3,7 +3,7 @@ import Deque from './Deque';
 const palindrome = (str) => {
   // create a palindrome checker using deque
   if (str.length == 0 || !str || str == null) {
-    return null;
+    return false;
   }
 
   const backwardStr = new Deque;
