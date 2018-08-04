@@ -1,4 +1,3 @@
-
 import Node from './Node';
 
 class SinglyLinkedList {
@@ -9,57 +8,55 @@ class SinglyLinkedList {
 
   addToTail(val) {
     const node = new Node(val);
-    let currentNode;
+    let current;
 
+    // check to see if this is the first node in the LL
     if (!this.head) {
       this.head = node;
-    } else {
-      currentNode = this.head;
       
-      while (currentNode.next != null) {
-        // while there is a next value, iterate doen the links
-        currentNode = currentNode.next;
-      } 
+    } else {
+      current = this.head;
+      while (current.next != null) {
+        current = current.next
+      }
 
-      currentNode.next = node;
+      // once you hit the tail node, 
+      //assign current.next to be newly created Node
+      current.next = node;
     }
-
+    
+    //increment the size after the node is added;
     this.size++;
+    return node;
   };
 
-  getIndexAt(index) {
-    // if the index is within the range of 0 - this.size
-    if (index >=0 && index <= this.size ) {
-      // start iteration at the beginning, where head node is the first node
-      let node = this.head;
-      for (let i = 0; i < index && node != null; i++) {
-        node = node.next;
-      }
-      return node;
-    }
-    return undefined;
-  }
+  // Removing elements from a LL
+  // Remove elements at
+  removeAt(index) {
+    let current = this.head;
 
-  insert(val, index) {
-    if (index <= this.size && index >= 0) {
-      const node = new Node(val);
-
-      // if inserting to the first index
-      if (index == 0) {
-        const current = this.head;
-        node.next = current;
-        this.head = node;
-      } else {
-        let previous = this.getIndexAt(index - 1);
-        const current = previous.next;
-        node.next = current;
-        previous.next = node;
+    if (index == 0) {
+      this.head = current.next;
+    } 
+    
+    if (index >= 0 && index <= this.size) {
+      let previous;
+      for (let i = 0; i < index; i++) {
+        /* 
+        IMPORTANT: 
+        obtain the value of current and set it to be previous and previous.next to be current 
+        */
+        previous = current;
+        current = current.next;
       }
-      this.size++;
-      return true;
+
+      // links previous with current's next: skip it to remove
+      previous.next = current.next;
+      
     }
 
-    return false;
+    this.size--;
+    return current.value;
   };
 
 //end  
