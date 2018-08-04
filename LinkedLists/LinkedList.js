@@ -13,7 +13,7 @@ class SinglyLinkedList {
     // check to see if this is the first node in the LL
     if (!this.head) {
       this.head = node;
-      
+
     } else {
       current = this.head;
       while (current.next != null) {
@@ -57,6 +57,40 @@ class SinglyLinkedList {
 
     this.size--;
     return current.value;
+  };
+
+  getElementAt(index) {
+    if (index < 0 || index > this.size) {
+      return undefined;
+    }
+
+    let current = this.head;
+    if (index >= 0 && this.size > index) {
+      for (let i = 0; i < index; i++) {
+        current = current.next;
+      }
+
+      return current;
+    }
+
+    return undefined;
+  };
+
+  remove_at(index) {
+    if (index == 0) {
+      this.head = this.head.next;
+    }
+
+    if (index >= 0 && this.size >= index) {
+      let prev = this.getElementAt(index - 1);
+      let current = prev.next;
+      prev.next = current.next;
+      this.size--;
+      
+      return current.value;
+    }
+
+    return undefined;
   };
 
 //end  
