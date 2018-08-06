@@ -117,5 +117,19 @@ class SinglyLinkedList {
       return false;
   };
 
+  indexOf(element) {
+    let current = this.head;
+    let index = -1;
+
+    for (let i = 0; i < this.size && current != null; i++) {
+      if (current.value == element) {
+        return index = i;
+      } else {
+      current = current.next;
+      }  
+    }      
+      return index;
+  }
+
 //end  
 }
