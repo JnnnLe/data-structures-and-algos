@@ -152,7 +152,7 @@ class SinglyLinkedList {
       }
     }
 
-    return results;
+    return results.slice(0, results.length - 2);
   };
 
 //end  
