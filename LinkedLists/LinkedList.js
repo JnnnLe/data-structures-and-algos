@@ -129,7 +129,31 @@ class SinglyLinkedList {
       }  
     }      
       return index;
-  }
+  };
+
+  remove(element) {
+    let indexOfElement = this.indexOf(element);
+
+    if (indexOfElement != -1) {
+      return this.removeAt(indexOfElement);
+    }
+    return undefined;
+  };
+
+  toStr() {
+    let results = '';
+
+    let current = this.head;
+
+    if (current) {
+      for (let i = 0; i < this.size; i++) {
+        results = results + `${current.value}, `;
+        current = current.next;
+      }
+    }
+
+    return results;
+  };
 
 //end  
 }
