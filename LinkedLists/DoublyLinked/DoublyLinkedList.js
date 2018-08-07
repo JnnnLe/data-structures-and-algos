@@ -10,8 +10,63 @@ class DoublyNode extends Node {
 
 class DoublyLinkedList extends SinglyLinkedList {
   constructor() {
+    //super();
     this.tail = null;
   }
 
-  
+  insert(val, index) {
+    let node = new DoublyNode(val);
+    let current = this.head;
+    
+    if (index >= 0 && index <= this.size) {
+      // inserting to head
+      if (index == 0) {
+
+        // if head doesnt exist yet:
+        if (!this.head) {
+          //dont forget about tail node
+          this.head = node;
+          this.tail = node;
+        } else {
+          // think about this.head, current.next, this.tail
+          node.next = this.head;
+          current.prev = node;
+          this.head = node;
+        }
+      }
+
+      // inserting to be last item
+      else if (index == this.size) {
+        current = this.tail;
+        this.tail = node;
+        current.next = node;
+        node.prev = current;
+        
+      } else {
+        // baseline for middle insertion
+        let previous = this.getElementAt(index - 1);
+        current = previous.next;
+
+        // assignment forward and backwards pointers
+
+        // forward:
+        previous.next = node;
+        node.next = current;
+
+        // backwards:
+        current.prev = node;
+        node.prev = previous;
+      }
+
+      this.size++;
+      return true;
+    }
+
+    return false;
+  };
+
+
+
+
+// end of class  
 }

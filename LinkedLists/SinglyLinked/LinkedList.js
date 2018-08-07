@@ -1,5 +1,14 @@
 import Node from '../Node';
 
+/*
+class Node {
+  constructor(data, next = null) {
+    this.value = data;
+    this.next = next;
+  }
+};
+*/
+
 class SinglyLinkedList {
   constructor() {
     this.head = null;
@@ -13,7 +22,6 @@ class SinglyLinkedList {
     // check to see if this is the first node in the LL
     if (!this.head) {
       this.head = node;
-
     } else {
       current = this.head;
       while (current.next != null) {
