@@ -41,7 +41,7 @@ class DoublyLinkedList extends SinglyLinkedList {
         this.tail = node;
         current.next = node;
         node.prev = current;
-        
+
       } else {
         // baseline for middle insertion
         let previous = this.getElementAt(index - 1);
@@ -65,6 +65,46 @@ class DoublyLinkedList extends SinglyLinkedList {
     return false;
   };
 
+  remove(index) {
+    let current = this.head;
+
+    // set bounds
+    if (index >= 0 && index <= this.size) {
+
+      // first index
+      if (index == 0 && this.count == 1) {
+        this.head = null;
+        this.next = null;
+        this.tail = null;
+      }
+
+      // removing head and the size of LL is not 1
+      if (index == 0) {
+        this.head = current.next;
+        this.tail = current.next;
+      }
+      
+      else if (index == this.size - 1) {
+        // removing tail
+        current = this.tail.prev;
+        this.tail = current;
+        current.next = null;
+        
+      } else {
+        // middle index
+        let previous = this.getElementAt(index - 1);
+        current = previous.next;
+        previous.next = current.next;
+        current.next = previous.next;
+      }
+
+      // decrement the size with each removal
+      this.size--;
+      return true;
+    }
+
+    return undefined;
+  };
 
 
 
