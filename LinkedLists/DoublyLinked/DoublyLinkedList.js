@@ -100,13 +100,11 @@ class DoublyLinkedList extends SinglyLinkedList {
 
       // decrement the size with each removal
       this.size--;
-      return true;
+      return current.value;
     }
 
     return undefined;
   };
-
-
 
 // end of class  
 }
