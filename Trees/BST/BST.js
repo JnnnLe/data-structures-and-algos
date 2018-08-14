@@ -1,5 +1,9 @@
 import Node from '../Node';
 
+const print = (value) => {
+  console.log(value);
+}
+
 class bst {
   constructor() {
     this.root = null;
@@ -13,7 +17,7 @@ class bst {
     }
   };
 
-  // helper fn for inserting new Node into tree
+  // helper fn for inserting new Node into tree (above)
   insertNode(node, value) {
     // check for value against value of node
     if (node.value > value) {
@@ -32,6 +36,30 @@ class bst {
       } else {
         this.insertNode(node.right, value);
       }
+    }
+  };
+
+  preOrder(root, callback) {
+    if (root) {
+      callback(root.value);
+      this.preOrder(root.left);
+      this.preOrder(root.right);
+    }
+  };
+
+  inOrder(root, callback) {
+    if (root) {
+      this.inorder(root.left, callback);
+      callback(root.value);
+      this.inorder(root.right, callback);
+    }
+  };
+
+  postOrder(root, callback){
+    if (root) {
+      this.postOrder(root.left, callback);
+      this.postOrder(root.right, callback);
+      callback(root.value);
     }
   };
 
