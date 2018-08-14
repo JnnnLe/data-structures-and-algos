@@ -4,7 +4,7 @@ const print = (value) => {
   console.log(value);
 }
 
-class bst {
+class BST {
   constructor() {
     this.root = null;
   }
@@ -108,5 +108,44 @@ class bst {
     return false;
   };
 
+  delete(node) {
+    return this.deleteNode(this.root, node);
+  };
+
+  deleteNode(node, key) {
+    if (!node) {
+      return null;
+    }
+
+    if (key < node.value) {
+      node.left = this.deleteNode(node.left, key);
+      return node;
+    } else if (key > node.value) {
+      node.right = this.deleteNode(node.right, key);
+      return node;
+    } else {
+
+      // case: leaf node 
+      if (node.left == null && node.right == null) {
+        return node = null;
+      }
+
+      // case 2: one child
+      if (node.left == null) {
+        return node = node.right;
+      } else if (node.right == null) {
+        return node = node.left;
+      }
+
+      // case 3: node had a left and right value
+      const minSuccessor = this.minNode(node.right);
+      node.value = minSuccessor;
+      node.right = this.deleteNode(node.right, minSuccessor);
+      return node;
+    }
+  };
+
 // end of class
-}
+};
+
+export default BST;
