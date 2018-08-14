@@ -90,5 +90,23 @@ class bst {
     return current;
   };
 
+  search(key) {
+    return this.searchNode(this.root, key);
+  };
+
+  searchNode(node, key) {
+    if (!node) return false;
+
+    if (node.value == key) return true;
+
+    if (node.value > key && node.left) {
+      return this.searchNode(node.left, key);
+    } 
+    else if (node.value < key && node.right) {
+      return this.searchNode(node.right, key);
+    } 
+    return false;
+  };
+
 // end of class
 }
