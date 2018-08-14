@@ -63,5 +63,32 @@ class bst {
     }
   };
 
+  // search: min value, max value and specific value
+  min(root = this.root) {
+    return this.minNode(root);
+  };
+
+  minNode(root) {
+    let current = root;
+    while (current && current.left) {
+      current = current.left;
+    }
+
+    return current;
+  };
+
+  max(root = this.root) {
+    return this.maxNode(root);
+  };
+
+  maxNode(root) {
+    let current = root;
+    while (current && current.right) {
+      current = current.right;
+    }
+    
+    return current;
+  };
+
 // end of class
 }
