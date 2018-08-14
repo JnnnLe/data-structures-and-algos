@@ -19,7 +19,16 @@ class AVL extends BST {
     temp.right = node;
     node.left = temp.right;
     return temp;
-  }
+  };
+
+  rrRotation(node) {
+    let temp = node.right;
+    node.right = temp.left;
+    temp.left = node;
+    return temp;
+  };
+
+  
   
 
 // end of class
