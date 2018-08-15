@@ -1,35 +1,27 @@
 import BST from './BST';
 
+class Node {
+    consdtructor(data) {
+      this.value = data;
+      this.left = null; 
+      this.right = null;
+
+      // difference from Node class in BST: parent property
+        // reference to parent - the relationship goes in both direction
+        // makes it possible to balance and get height of tree
+      this.parent = null;
+    }
+}
+
 class AVL extends BST {
   constructor() {
     super();
     this.root = null;
-    this.height = 0
+    this.height = 0;
   }
 
-  getNodeHeight (node) {
-    if (node == null) return -1;
-    return Math.max(this.getNodeHeight(node.left), this.getNodeHeight(node.right)) + 1;
-  }
-
-  // Left-Left :single right rotation
-  llRotation(node) {
-    let temp = node.left;
-    node.left = temp.left;
-    temp.right = node;
-    node.left = temp.right;
-    return temp;
-  };
-
-  rrRotation(node) {
-    let temp = node.right;
-    node.right = temp.left;
-    temp.left = node;
-    return temp;
-  };
-
   
-  
+   
 
 // end of class
 }
