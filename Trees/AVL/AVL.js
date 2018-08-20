@@ -13,7 +13,7 @@ class Node {
     }
 }
 
-class AVL extends BST {
+class AVL {
   constructor() {
     super();
     this.root = null;
@@ -49,11 +49,23 @@ class AVL extends BST {
       }
 
       // before we can exit the fn, we must check for balance on newNode
-      this.balance(newNode)
-      
+      this.balance(newNode);
     }
   }
    
 
 // end of class
 }
+
+
+/*
+const j = new AVL;
+j.add(100)
+j.add(40)
+j.add(101)
+j.add(70)
+j.add(99)
+j.add(150)
+j.add(35)
+
+*/
