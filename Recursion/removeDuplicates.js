@@ -8,7 +8,6 @@ const removeDuplicates = (str, i = 0, noDuplicatesArr = [], duplicatesObj = {}) 
       noDuplicatesArr.push(split[i]);
     } else {
       if (!duplicatesObj[split[i]]) {
-        console.log('case hit, should be e then n', split[i]);
         duplicatesObj[split[i]] = 1;
         noDuplicatesArr.push(split[i]);
       }
