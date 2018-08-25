@@ -7,10 +7,7 @@ const bubbleSort = (originalArray) => {
     for (let i = 1; i < array.length; i++) {
       swapped = false;
 
-      // Call visiting callback.
-
       for (let j = 0; j < array.length - i; j++) {
-        // Call visiting callback.
 
         // Swap elements if they are in wrong order.
         if (array[j + 1] < array[j]) {
