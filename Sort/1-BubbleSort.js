@@ -36,7 +36,8 @@ bubbleSort([10,6,7,2,3,19,1,8,9]);
 // less code, same effect
 const bubble = (arr) => {
   for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr.length - 1; j++) {
+    // by iadding the i on the conditional, it eliminates the unesseccary comparisons of the arr
+    for (let j = 0; j < arr.length - i; j++) {
       if (arr[j] > arr[j+1]) {
         let temp = arr[j+1];
         arr[j+1] = arr[j];
