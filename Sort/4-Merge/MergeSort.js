@@ -1,20 +1,20 @@
-function mergeSort(list) {
+const mergeSort = (list) => {
 
-	var len = list.length;
+	let len = list.length;
 	// an array of length one or less is technically a sorted list.
 	// This is our base case.
 	if (len < 2) {
-			return list;
+		return list;
 	}
 	// round up so that first half is equal to or greater than second
 	// This means that if we have an odd numbered length,
 	// The first half will be greater than the second half
 	// Don't have to do this, but simply a stylistic choice.
-	var middleIndex = Math.ceil(len / 2),
+	let middleIndex = Math.ceil(len / 2),
 
-			// Split current li into two: left and right list.
-			leftList   = list.slice(0, middleIndex),
-			rightList  = list.slice(middleIndex, len);
+		// Split current li into two: left and right list.
+		leftList   = list.slice(0, middleIndex),
+		rightList  = list.slice(middleIndex, len);
 
 	leftList = mergeSort(leftList);
 	rightList = mergeSort(rightList);
@@ -28,17 +28,17 @@ function mergeSort(list) {
 * 
 * Bubble up until we find the solution
 * */
-function merge(leftList, rightList) {
-	var result = [];
+const merge = (leftList, rightList) => {
+	const result = [];
 	while (leftList.length > 0 && rightList.length > 0) {
-		var leftItem = leftList[0],
-				rightItem = rightList[0];
+		let leftItem = leftList[0],
+			rightItem = rightList[0];
 		if (leftItem > rightItem) {
-				result.push(rightItem);
-				rightList.shift();
+			result.push(rightItem);
+			rightList.shift();
 		} else {
-				result.push(leftItem);
-				leftList.shift();  // remove item that was pushed in
+			result.push(leftItem);
+			leftList.shift();  // remove item that was pushed in
 		}
 	}
 
@@ -59,9 +59,9 @@ function merge(leftList, rightList) {
 	return result;
 }
 
-var list = [11, 28, 8, 15, 50, 20, 90];
+let list = [11, 28, 8, 15, 50, 20, 90];
 
 var result = mergeSort(list);
-console.log(result);
+console.log('This is the sorted array:', result);
 
 // Implementation courtesy of: https://github.com/JWLee89/The-Coding-Delight/edit/master/JavaScript/algorithms/sorts/merge-sort/mergeSort.js
