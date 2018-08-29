@@ -31,6 +31,8 @@ const mergeSort = (list) => {
 const merge = (leftList, rightList) => {
 	const result = [];
 	while (leftList.length > 0 && rightList.length > 0) {
+		// csonsole.log('1st', leftList, rightList)
+		
 		let leftItem = leftList[0],
 			rightItem = rightList[0];
 		if (leftItem > rightItem) {
@@ -44,12 +46,14 @@ const merge = (leftList, rightList) => {
 
 	// if left list has items, add what is left to the results
 	while (leftList.length !== 0) {
+		// console.log('2nd', leftList, rightList)
 		result.push(leftList[0]);
 		leftList.shift();
 	}
 
 	// if right list has items, add what is left to the results
 	while (rightList.length !== 0) {
+		// console.log('3rd', leftList, rightList)
 		result.push(rightList[0]);
 		rightList.shift();
 	}
